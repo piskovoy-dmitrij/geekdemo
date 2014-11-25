@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
+ {% block stylesheets %}
+     {{ parent() }}
+     {#<link href="{{ asset('bundles/geekhubdemo/css/order.css') }}" rel="stylesheet" />#}
+ {% endblock %}
+
 {% block title %}Orders list{% endblock %}
 
 {% block content %}
     {% if orders|length > 0 %}
         <table class="table table-hover">
             <thead>
-                <tr>
+                <tr class="blue-font">
                     <th>Number</th>
                     <th>Price</th>
                     <th>Owner</th>
@@ -16,8 +21,8 @@
                 {% for order in orders %}
                     <tr>
                         <td><a href="{{ path('order_detail', {'id': loop.index}) }}">{{ order.number|e }}</a></td>
-                        <td>{{ order.price }}</td>
-                        <td>user</td>
+                        <td>{{ order.price|price }}</td>
+                        <td>{{ "owner"|upper }}</td>
                     </tr>
                     {#{{ include('GeekHubDemoBundle:Order/partials:_table_row.html.twig', { 'order': order }) }}#}
                 {% endfor %}
@@ -26,9 +31,6 @@
     {% endif %}
 {% endblock %}
 
-{% block product %}
-    {{ render(controller(
-        'GeekHubDemoBundle:Product:index',
-        { 'max': 3 }
-    )) }}
+{% block sidebar %}
+    {#{{ render(controller('GeekHubDemoBundle:Product:index', { 'max': 3 })) }}#}
 {% endblock %}

@@ -22,7 +22,7 @@ class OrderController extends Controller
     );
 
     /**
-     * @Route("/orders", name="order_list")
+     * @Route("/", name="order_list")
      * @Template()
      */
     public function indexAction()
