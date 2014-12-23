@@ -1,3 +1,5 @@
+{% trans_default_domain "messages" %}
+
 {% extends 'base.html.twig' %}
 
  {% block stylesheets %}
@@ -8,6 +10,10 @@
 {% block title %}Orders list{% endblock %}
 
 {% block content %}
+
+    {{ "success.translation_message"|trans() }}
+    {{ "apples"|transchoice(5, {"%name%": 'User', "%count%": 5}, "messages") }}
+
     {% if orders|length > 0 %}
         <table class="table table-hover">
             <thead>

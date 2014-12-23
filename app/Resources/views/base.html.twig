@@ -27,6 +27,11 @@
 
         <div class="row">
 
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div class="alert alert-success" role="alert">{{ flashMessage|trans }}</div>
+            {% endfor %}
+
             <div class="col-sm-9">
                 {% block content %}{% endblock %}
             </div>

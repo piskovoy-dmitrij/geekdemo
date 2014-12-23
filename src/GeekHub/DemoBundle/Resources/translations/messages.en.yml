@@ -1,0 +1,3 @@
+success:
+    translation_message: "We translate it in English"
+apples: "{0} %name% there are no apples|{1} %name% there is one apple|[2,Inf] %name% there are %count% apples"
